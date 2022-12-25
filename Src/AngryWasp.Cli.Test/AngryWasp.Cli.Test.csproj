@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../../External/AngryWasp.Build/AngryWasp.Build.Application.targets" />
+    <ItemGroup>
+        <PackageReference Include="AngryWasp.Logger" Version="3.0.1" />
+        <PackageReference Include="AngryWasp.Helpers" Version="3.0.4" />
+        <PackageReference Include="AngryWasp.Serializer" Version="3.0.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="../AngryWasp.Cli/AngryWasp.Cli.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../../External/AngryWasp.Build/AngryWasp.Build.Library.targets" />
+    <Import Project="../../External/AngryWasp.Build/AngryWasp.Build.Pack.targets" />
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net6.0;net7.0</TargetFrameworks>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <PackageId>AngryWasp.Cli</PackageId>
+        <PackageDescription>Easily create CLI based applications</PackageDescription>
+        <RepositoryUrl>https://github.com/angrywasp/AngryWasp.Cli</RepositoryUrl>
+        <Author>Angry Wasp</Author>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="AngryWasp.Logger" Version="3.0.1" />
+        <PackageReference Include="AngryWasp.Helpers" Version="3.0.4" />
+        <PackageReference Include="AngryWasp.Serializer" Version="3.0.1" />
+    </ItemGroup>
+</Project>
