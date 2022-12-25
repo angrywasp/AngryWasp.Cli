@@ -1,3 +1,5 @@
-# AngryWasp.Ethereum
+# AngryWasp.Cli
 
-Collection of random helpers for talking to Ethereum and Ethereum based EVM blockchains
+Easily create CLI based applications
+
+Check out the included Test app to see how it's used
