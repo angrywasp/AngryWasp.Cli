@@ -7,13 +7,13 @@
             "request": "launch",
             "preLaunchTask": "build-debug",
             "windows" :{
-                "program": "${workspaceFolder}/Bin/Binaries/AngryWasp.Cli.Test.exe",
+                "program": "${workspaceFolder}/Bin/Binaries/net7.0/AngryWasp.Cli.Test.exe",
             },
             "osx": {
-                "program": "${workspaceFolder}/Bin/Binaries/AngryWasp.Cli.Test",
+                "program": "${workspaceFolder}/Bin/Binaries/net7.0/AngryWasp.Cli.Test",
             },
             "linux": {
-                "program": "${workspaceFolder}/Bin/Binaries/AngryWasp.Cli.Test",
+                "program": "${workspaceFolder}/Bin/Binaries/net7.0/AngryWasp.Cli.Test",
             },
             "args": [
                 

@@ -1,9 +1,28 @@
-#!/bin/bash -e
+#!/bin/bash
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [[ -z "${PKG_VER}" ]]; then
-    echo "PKG_VER env var not present. Aborting"
-    exit
-fi
+function getNewVersion()
+{
+    lvl=$1
 
-dotnet build -c Release Src/LevinSharp.sln -p:PackageVersion=${PKG_VER}
-dotnet nuget push Bin/Binaries/AngryWasp.LevinSharp.${PKG_VER}.nupkg --source https://api.nuget.org/v3/index.json
+    version=$(curl -s https://api.nuget.org/v3-flatcontainer/AngryWasp.Cli/index.json | jq .[][-1] | tr -d '"')
+    semver=(${version//./ })
+
+    if [ "${lvl}" == "major" ]; then
+        ((semver[0]++))
+        semver[1]=0
+        semver[2]=0
+    elif [ "${lvl}" == "minor" ]; then
+        ((semver[1]++))
+        semver[2]=0
+    else
+        ((semver[2]++))
+    fi
+
+    echo "${semver[0]}.${semver[1]}.${semver[2]}"
+}
+
+version=$(getNewVersion $1 patch)
+
+dotnet build -c Release Src/AngryWasp.Cli.sln -p:PackageVersion=${version}
+dotnet nuget push Bin/Binaries/AngryWasp.Cli.${version}.nupkg --source https://api.nuget.org/v3/index.json
