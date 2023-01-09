@@ -4,7 +4,7 @@ using AngryWasp.Cli.Prompts;
 namespace AngryWasp.Cli.Test.Commands
 {
     [ApplicationCommand("echo", "Repeats the text you enter")]
-    public class Sync : IApplicationCommand
+    public class Echo : IApplicationCommand
     {
         public async Task<bool> Handle(string command)
         {

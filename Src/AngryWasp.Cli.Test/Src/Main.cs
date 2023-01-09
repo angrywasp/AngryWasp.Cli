@@ -2,6 +2,7 @@ using AngryWasp.Logger;
 using AngryWasp.Cli.Args;
 using AngryWasp.Cli.Config;
 using System;
+using AngryWasp.Cli.Test.Commands;
 
 namespace AngryWasp.Cli.Test
 {
@@ -22,7 +23,13 @@ namespace AngryWasp.Cli.Test
             Log.CreateInstance(true);
 
             Console.WriteLine("type 'help' to get a list of commands");
+
+            //Automatically register all commands with the ApplicationCommand attribute
             Application.RegisterCommands();
+
+            //Or manually register commands
+            Application.RegisterCommand("hello", "Says hello", new Hello().Handle);
+            
             Application.Start();
         }
     }
