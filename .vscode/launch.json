@@ -16,7 +16,7 @@
                 "program": "${workspaceFolder}/Bin/Binaries/net7.0/AngryWasp.Cli.Test",
             },
             "args": [
-                
+                "-a", "50"
             ],
             "cwd": "${workspaceFolder}/Bin/Binaries",
             "console": "integratedTerminal",

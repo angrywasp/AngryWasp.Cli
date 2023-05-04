@@ -4,13 +4,13 @@ namespace AngryWasp.Cli.Test
 {
     public class CommandLine
     {
-        [CommandLineArgument("a", 100, "Example integer argument.")]
-        public int A { get; set; }
+        [CommandLineArgument("a", "Example integer argument.")]
+        public int A { get; set; } = 100;
 
-        [CommandLineArgument("b", "Hello World", "Example string argument.")]
-        public string B { get; set; }
+        [CommandLineArgument("b", "Example string argument.")]
+        public string B { get; set; } = "Hello World";
 
-        [CommandLineArgument("c", true, "Example boolean argument.")]
+        [CommandLineArgument("c", "Example boolean argument.")]
         public bool C { get; set; }
     }
 }

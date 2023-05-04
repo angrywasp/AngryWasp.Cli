@@ -12,7 +12,7 @@ namespace AngryWasp.Cli.Config
         private static T classInstance;
 
         //The extra list is for command line options you want to show in the help list
-        // as valid command line options, but don't want to save in the Config file
+        //as valid command line options, but don't want to save in the Config file
         private static string[,] extraList;
 
         private static Dictionary<string, (CommandLineArgumentAttribute Attribute, PropertyInfo Property)> map =
@@ -40,11 +40,7 @@ namespace AngryWasp.Cli.Config
             foreach (var p in typeof(T).GetProperties())
             {
                 CommandLineArgumentAttribute a = p.GetCustomAttributes(true).OfType<CommandLineArgumentAttribute>().FirstOrDefault();
-                if (a == null || !p.CanWrite)
-                    continue;
-
-                p.SetValue(classInstance, a.DefaultValue);
-
+                if (a == null) continue;
                 map.Add(a.Flag, (a, p));
             }
 
